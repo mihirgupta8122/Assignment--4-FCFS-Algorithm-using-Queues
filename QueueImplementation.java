@@ -1,33 +1,37 @@
 public class QueueImplementation<T> implements QueueInterface<T> {
+    LinkedListObj<T> dataQueue = new LinkedListObj<T>();
 
     @Override
     public void enqueue(T newEntry) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'enqueue'");
+        if (dataQueue == null) {
+            dataQueue = new LinkedListObj<T>(newEntry);
+        } else {
+            dataQueue.addData(newEntry);
+        }
     }
 
     @Override
     public T dequeue() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'dequeue'");
+        T toReturnData = dataQueue.getData();
+        this.dataQueue = dataQueue.getNext();
+        return toReturnData;
     }
 
     @Override
     public T getFront() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFront'");
+        return dataQueue.getData();
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        if (this.dataQueue == null) {
+            return true;
+        }
+        return (this.dataQueue.getData() == null);
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        this.dataQueue = new LinkedListObj<T>();
     }
-
 }
