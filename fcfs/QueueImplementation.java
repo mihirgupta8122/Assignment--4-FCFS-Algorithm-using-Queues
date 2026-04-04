@@ -1,3 +1,4 @@
+package fcfs;
 import java.util.Scanner;
 
 public class QueueImplementation<T> implements QueueInterface<T> {
