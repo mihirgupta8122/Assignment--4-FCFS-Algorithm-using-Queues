@@ -1,3 +1,4 @@
+package fcfs;
 public class LinkedListObj<T> {
     LinkedListObj<T> next = null;
     T data = null;
@@ -14,7 +15,12 @@ public class LinkedListObj<T> {
         if (this.data == null) {
             this.data = newData;
         } else {
-            this.next = new LinkedListObj<T>(newData);
+            // Traverse to the end of the list to add the new node
+            LinkedListObj<T> current = this;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = new LinkedListObj<T>(newData);
         }
     }
 
